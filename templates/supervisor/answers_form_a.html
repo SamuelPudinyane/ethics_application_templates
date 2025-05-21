@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Form A – Section 1 | JBS Ethics</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/form_a.css" />
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/form_a.css') }}"> -->
+  <style>
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+      width: 400px;
+      max-width: 90%;
+      box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 1rem;
+      color: #2E1A46;
+    }
+
+    .modal-content button {
+      margin-top: 1rem;
+      background-color: #2E1A46;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="nav-content">
+      <img src="/static/img/image.png" alt="UJ JBS Logo" class="logo uj">
+      <span class="nav-title">Form A – Section 1: Researcher’s Details</span>
+
+      <!-- Logout -->
+      <div style="text-align: right;">
+
+        <a href="/templates/login/logout.html" class="btn-logout">Logout</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Form -->
+    <form id="formAsection1" enctype="multipart/form-data">
+      <div class="form-section">
+        <label for="applicant-name">Applicant Name</label>
+        <label for="student-number">Student / Staff Number</label>
+        <label for="institution">Institution</label>
+        <label for="department">UJ Department and School</label>     
+        <label for="degree">Degree Registered For</label>
+        <label for="title">Title / Working Title of Study</label>
+        <label for="mobile">Mobile Number</label>
+        <label for="email">Email Address</label>
+        <label for="supervisor">Supervisor Name(s)</label>
+        <label for="supervisor_email">Supervisor Email</label>
+      </div>
+
+ 
+    </form>
+  </main>
+
+  <!-- Section 2 -->
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <h1>FORM A</h1>
+    <h2>Research Ethics Application for Conducting Research Involving Humans</h2>
+
+    <h3>1. Ethical Clearance Aspects</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Aspect</th>
+          <th>Tick that is applicable:</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Survey/questionnaire</td>
+          <td><input type="checkbox" name="survey"></td>
+
+        </tr>
+        <tr>
+          <td>Focus groups</td>
+          <td><input type="checkbox" name="focus_groups"></td>
+
+        </tr>
+        <tr>
+          <td>Observations</td>
+          <td><input type="checkbox" name="observations"></td>
+
+        </tr>
+        <tr>
+          <td>Interviews</td>
+          <td><input type="checkbox" name="interviews"></td>
+
+        </tr>
+        <tr>
+          <td>Documents</td>
+          <td><input type="checkbox" name="documents"></td>
+
+        </tr>
+        <tr>
+          <td>Other</td>
+          <td>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>2. Risk Assessment (Except)</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>2.1 Does your research include the direct involvement of any of the following groups of participants?</th>
+          <th>Tick where applicable</th>
+
+        </tr>
+      </thead>
+             <tbody>
+        <tr>
+          <td>Communities that may be considered as vulnerable</td>
+          <td><input type="checkbox" name="vulnerable_communities"></td>
+
+        </tr>
+        <tr>
+          <td>People under the age of 18 or over 65</td>
+          <td><input type="checkbox" name="age_range"></td>
+
+        </tr>
+        <tr>
+          <td>UJ employees or students</td>
+          <td><input type="checkbox" name="uj_employees"></td>
+
+        </tr>
+        <tr>
+          <td>Persons not usually considered to be vulnerable but would be considered vulnerable in the context of this
+            research project</td>
+          <td><input type="checkbox" name="vulnerable"></td>
+
+        </tr>
+        <tr>
+          <td>Non-English-speaking participants</td>
+          <td><input type="checkbox" name="non-english"></td>
+
+        </tr>
+        <tr>
+          <td>A researcher’s own students</td>
+          <td><input type="checkbox" name="own_students"></td>
+
+        </tr>
+        <tr>
+          <td>People living in poverty</td>
+          <td><input type="checkbox" name="poverty"></td>
+
+        </tr>
+        <tr>
+          <td>People with little or no education </td>
+          <td><input type="checkbox" name="no_education"></td>
+
+        </tr>
+        <tr>
+          <td>Other: Provide a description</td>
+          <td><input type="text" class="form-control d-inline" name="assessment_other_specify" placeholder="Specify">
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+    <hr>
+
+    <table>
+      <thead>
+        <tr>
+          <th>2.2 Does your research involve any of the following types of activity?</th>
+          <th>Tick where applicable</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Collection, use or disclosure of information WITHOUT the consent of the individual whose information it
+            is, with the exception of aggregated data or data from official databases such as StatsSA, SARS, etc.</td>
+          <td><input type="checkbox" name="disclosure"></td>
+
+        </tr>
+        <tr>
+          <td>Causing discomfiture to participants beyond normal levels of inconvenience</td>
+          <td><input type="checkbox" name="discomfiture"</td>
+
+        </tr>
+        <tr>
+          <td>Deception of participants, concealment or covert observation</td>
+          <td><input type="checkbox" name="deception"></td>
+
+        </tr>
+        <tr>
+          <td>Examining potentially sensitive or contentious issues</td>
+          <td><input type="checkbox" name="sensitive"></td>
+
+        </tr>
+        <tr>
+          <td>Seeking disclosure of information which may be prejudicial to participants</td>
+          <td><input type="checkbox" name="prejudice"></td>
+
+        </tr>
+        <tr>
+          <td>Using intrusive techniques</td>
+          <td><input type="checkbox" name="intrusive_techniques"></td>
+
+        </tr>
+        <tr>
+          <td>Study of or participation in illegal activities</td>
+          <td><input type="checkbox" name="illegal_activities"></td>
+
+        </tr>
+        <tr>
+          <td>Personal and social information collected directly from participants</td>
+          <td><input type="checkbox" name="personal"></td>
+
+        </tr>
+        <tr>
+          <td>Identifiable information to be collected about people from available records (e.g., staff records, student
+            records, etc.)</td>
+          <td><input type="checkbox" name="available_records"></td>
+
+        </tr>
+        <tr>
+          <td>Psychology inventories / scales / tests</td>
+          <td><input type="checkbox" name="inventories"></td>
+
+        </tr>
+        <tr>
+          <td>Activities which may place the researcher(s) / data collector at risk</td>
+          <td><input type="checkbox" name="risk_activities"></td>
+
+        </tr>
+        <tr>
+          <td>Other: Provide a description</td>
+          <td><input type="text" class="form-control d-inline" name="activity_specify" placeholder="Specify"></td>
+
+        </tr>
+
+      </tbody>
+    </table>
+
+    <hr>
+
+    <table>
+      <thead>
+        <tr>
+          <th>2.3 Do any of the following apply to your research project?</th>
+          <th>Tick where applicable</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>a) Reimbursement or incentives to any participants. </td>
+          <td><input type="checkbox" name="incentives"></td>
+
+        </tr>
+        <tr>
+          <td>b) The participants will incur financial costs by participating in the study.</td>
+          <td><input type="checkbox" name="financial_costs"></td>
+
+        </tr>
+        <tr>
+          <td>c) At least one of the researchers has a financial or other involvement in the research (apart from their
+            research role) or may receive a reward.</td>
+          <td><input type="checkbox" name="reward"></td>
+
+        </tr>
+        <tr>
+          <td>d) Any other potential conflict of interest for any of the researchers (real or perceived financial or
+            personal considerations that may compromise a researcher’s professional judgement in carrying out or
+            reporting research, such as conducting research with colleagues, peers or students).</td>
+          <td><input type="checkbox" name="conflict"></td>
+
+        </tr>
+        <tr>
+          <td>e) Research is done on the premises of UJ or any of its units.</td>
+          <td><input type="checkbox" name="uj_premises"></td>
+
+        </tr>
+        <tr>
+          <td>f) Research will make use of some of UJs facilities (venues, software, hardware, etc.)</td>
+          <td><input type="checkbox" name="uj_facilities"></td>
+
+        </tr>
+        <tr>
+          <td>g) Research will be funded by UJ or funding for it was acquired through UJ.</td>
+          <td><input type="checkbox" name="uj_funding"></td>
+
+        </tr>
+        <tr>
+          <td>
+
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="mb-3">
+      <label><strong>Rate your project (Negligible, Low, Medium, High Risk):</strong><span class="info-icon"
+          title="Low risk: ; Medium risk: ' High risk:">ℹ️</span></label>
+      <select name="risk_rating" class="form-select">
+        <option value="">-- Select Risk Level --</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+    </div>
+
+
+
+    </tr>
+    <tr>
+      <td>Interviews</td>
+      <td><input type="checkbox" name="interviews"></td>
+
+    </tr>
+    <tr>
+      <td>Documents</td>
+      <td><input type="checkbox" name="documents"></td>
+
+    </tr>
+    <tr>
+      <td colspan="2">
+        <label>Other (Specify)</label>
+     
+      </td>
+
+    </tr>
+    </tbody>
+    </table>
+
+    </form>
+
+  </main>
+
+  <!-- Section 3 -->
+
+    <!-- Main Content -->
+  <main class="main-content">
+    
+    <h2>Section 3: Proposal Summary Sheet</h2>
+    <div class="section">
+      <label>3.1 Title or provisional title of the research project:</label>
+    
+
+      <label>3.2 Proposal abstract in nontechnical language and statement of research problem:</label>
+
+
+      <label>3.3 Research Questions / Hypotheses:</label>
+
+
+      <label>3.4 Research Purpose and Objectives / Anticipated outcomes:</label>
+ 
+    </div>
+
+    <h2>Section 4: Details of Proposed Research</h2>
+    <div class="section">
+      <label>4.1 Does your project involve organisations or institutions that need to grant permission for research activities?</label>
+      <table>
+        <thead>
+          <tr>
+            <th>Name of Organisation</th>
+            <th>Person Granting Permission & Contact</th>
+            <th>Role</th>
+            <th>Permission Granted?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="org_name[]"></td>
+            <td><input type="text" name="org_contact[]"></td>
+            <td><input type="text" name="org_role[]"></td>
+            <td>
+              <label><input type="radio" name="org_permission_1" value="Yes"> Yes</label>
+              <label><input type="radio" name="org_permission_1" value="No"> No</label>
+              <label><input type="radio" name="org_permission_1" value="Pending"> Pending</label>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <label>4.2 Are any researchers affiliated with the organisations above?</label>
+      <label><input type="radio" name="researcher_affiliation" value="No"> No</label>
+      <label><input type="radio" name="researcher_affiliation" value="Yes"> Yes (Explain below)</label>
+  
+
+      <label>4.3 Does your research involve collectives or communities?</label>
+      <label><input type="radio" name="collective_involvement" value="No"> No</label>
+      <label><input type="radio" name="collective_involvement" value="Yes"> Yes (Explain below)</label>
+  
+
+      <label>4.4 Is your project funded or sponsored?</label>
+      <label><input type="radio" name="is_funded" value="No"> No</label>
+      <label><input type="radio" name="is_funded" value="Yes"> Yes (Complete table below)</label>
+      <table>
+        <thead>
+          <tr>
+            <th>Organisation Name</th>
+            <th>Contact Person & Details</th>
+            <th>Role</th>
+            <th>Funding Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="fund_org[]"></td>
+            <td><input type="text" name="fund_contact[]"></td>
+            <td><input type="text" name="fund_role[]"></td>
+            <td><input type="text" name="fund_amount[]"></td>
+          </tr>
+          <!-- add button to add row -->
+          <tr>
+            <td colspan="4">
+              <button type="button" onclick="addFundingRow()">Add Another Funding Source</button>
+            </td>
+        </tbody>
+      </table>
+
+      <label>4.5 Describe your arrangements regarding indemnity/compensation for adverse events:</label>
+  
+
+      <label>4.6 Has this proposal been submitted to another ethics committee?</label>
+
+    </div>
+
+    </form>
+
+  </main>
+
+  <!-- Section 4 -->
+
+    <!-- Main Content -->
+  <main class="main-content">
+
+  <!-- Section 5: Methodology -->
+  <section id="section-5">
+    <h2>SECTION 5 – METHODOLOGY</h2>
+
+    <label>5.1 Research Paradigm (Substantiate your choice of paradigm)</label><br>
+    <table id="methodTypeTable" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Quantitative Methods</th>
+          <th>Qualitative Methods</th>
+          <th>Mixed Methods</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center"><input type="checkbox" name="quantitative[]" value="yes"></td>
+          <td class="text-center"><input type="checkbox" name="qualitative[]" value="yes"></td>
+          <td class="text-center"><input type="checkbox" name="mixed_methods[]" value="yes"></td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <label>5.2 Research Design / Approach</label>
+    <br>
+    
+
+    <h3>5.3 Details of the participants</h3>
+    <br>
+
+    <h4>5.3.1 Participant Group Description</h4>
+
+
+    <table id="participantsTable" class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Population</th>
+          <th>Sampling Method</th>
+          <th>Sample Size</th>
+          <th>Inclusion Criteria</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" name="population[]" class="form-control" /></td>
+          <td><input type="text" name="sampling_method[]" class="form-control" /></td>
+          <td><input type="number" name="sample_size[]" class="form-control" /></td>
+          <td><textarea name="inclusion_criteria[]" rows="2" class="form-control"></textarea></td>
+          <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <button type="button" class="btn btn-secondary" onclick="addRow()">Add Row</button>
+
+
+    <label>5.3.2 Describe how much time you require of participants in each group and when the data will be collected/ interviews will take place.</label>
+    <br>>
+
+    <label>5.3.3 Explain how you will obtain the contact details of participantslabel>
+  <br>>
+
+    <label>5.3.4 Conflict of interest or unequal relationship between researcher and participants?</label><br>
+    <input type="radio" name="conflict_interest" value="No"> No
+    <input type="radio" name="conflict_interest" value="Yes"> Yes
+   <br>
+
+    <h3>5.4 Research Instruments for Data Collection</h3>
+    <label>5.4.1 Indicate which data collection methds will be used</label><br>
+    <label>5.4.1.1 Questionnaire(s):</label><br>
+    <input type="radio" name="questionnaire_type" value="Self-designed"> Self-designed<br>
+    <input type="radio" name="questionnaire_type" value="Existing"> Existing<br>
+    <label>If existing, permission obtained?</label>
+    <input type="checkbox" name="permission_obtained"> Yes
+    <input type="checkbox" name="open_source"> Open Source<br>
+   <br>
+
+    <label>5.4.2 Describe the data collection procedure</label>
+    <br>
+
+    <label>5.4.2.1 Interviews</label><br>
+    <input type="checkbox" name="interview_type" value="In-depth"> In-depth
+    <input type="checkbox" name="interview_type" value="Semi-structured"> Semi-structured
+    <input type="checkbox" name="interview_type" value="Unstructured"> Unstructured<br>
+
+    <label>Will interviews be recorded?</label><br>
+    <input type="checkbox" name="interview_recording" value="Audio"> Audio
+    <input type="checkbox" name="interview_recording" value="Video"> Video<br>
+
+    <label>5.4.2.2 Focus Groups</label><br>
+    <input type="radio" name="use_focus_groups" value="Yes"> Yes
+    <input type="radio" name="use_focus_groups" value="No"> No<br>
+    <label>Will focus groups be recorded?</label><br>
+    <input type="checkbox" name="focus_recording" value="Audio"> Audio
+    <input type="checkbox" name="focus_recording" value="Video"> Video
+    <br><br>
+    
+
+    <label>5.4.3 Who will collect the data (Researcher and/or field workers/external company)?</label>
+    <br>
+
+    <label>5.4.4 Will participants be subjected to any form of intervention (manipulation of the participant or the participants' environment)?</label><br>
+    <input type="radio" name="intervention" value="No"> No
+    <input type="radio" name="intervention" value="Yes"> Yes<br>
+    <br>
+
+    <label>5.4.5 Sensitive data or vulnerable populations?</label>
+    <br>
+
+    <label>5.4.6 Will a translator be required?</label><br>
+    <input type="radio" name="translator" value="No"> No
+    <input type="radio" name="translator" value="Yes"> Yes
+    <br>
+
+    <h3>5.5 Secondary Data Usage</h3>
+
+    <label>Will secondary data be used?</label><br>
+    <select id="secondaryData" class="form-select" onchange="handleSecondaryData()">
+      <option value="">-- Select --</option>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+    
+    <div id="secondaryDetails" style="display: none; margin-top: 1rem;">
+    
+      <label>Is the data Public or Private?</label><br>
+      <select id="dataType" class="form-select" onchange="handleDataType()">
+        <option value="">-- Select --</option>
+        <option value="private">Private</option>
+        <option value="public">Public</option>
+      </select>
+    
+      <!-- Private Data Section -->
+      <div id="privateDataSection" style="display: none; margin-top: 1rem;">
+        <label>Is the data from a company that has provided permission?</label><br>
+        <select id="privatePermission" class="form-select" onchange="handlePrivatePermission()">
+          <option value="">-- Select --</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+    
+        <div id="uploadPrivatePermission" style="display: none; margin-top: 1rem;">
+          <label>Please upload the permission for use of private data:</label>
+          <input type="file" name="private_permission_file" class="form-control">
+        </div>
+      </div>
+    
+      <!-- Public Data Section -->
+      <div id="publicDataSection" style="display: none; margin-top: 1rem;">
+        <label>What type of public data is going to be used?</label>
+        <textarea name="public_data_description" rows="3" class="form-control" placeholder="e.g., Annual reports; Open data; investigative reports"></textarea>
+      </div>
+    </div>
+  </section>
+
+
+      </form>
+  
+    </main>
+
+    <!-- Section 5 -->
+
+    <!-- Main Content -->
+  <main class="main-content">
+ 
+<!-- Section 6 – Ethical Considerations -->
+<div class="form-section" id="section6">
+    <h2>SECTION 6 – ETHICAL CONSIDERATIONS</h2>
+  
+    <div class="question-block">
+      <label for="informed-consent">6.1 Will informed consent be obtained? Explain the process:</label>
+      <br>
+    </div>
+  
+    <div class="question-block">
+      <label>6.2 Data storage and access to data</label><br>
+      <input type="checkbox" name="data_storage[]" value="secure_location"> Paper-based records must be kept in a secure location<br>
+      <input type="checkbox" name="data_storage[]" value="password_protected"> Computer-based records must only be available to personnel involved in the study through access privileges<br>
+      <input type="checkbox" name="data_storage[]" value="protected_place"> Electronic data will be kept in a protected place<br>
+      <input type="checkbox" name="data_storage[]" value="retention"> Paper-based data will be kept for 5 years and then destroyed<br>
+    </div>
+  
+    <div class="question-block">
+      <label for="study-benefits">6.3 What are the benefits of the study?</label>
+      <br>
+    </div>
+  
+    <div class="question-block">
+      <label for="participant-risks">6.4 Description of the risks participants may suffer and the level of risk:</label>
+      <br>
+    </div>
+  
+    <div class="question-block">
+      <label for="adverse-steps">6.5 Description of steps to be taken in case of adverse events:</label>
+      <br>
+    </div>
+  
+    <div class="question-block">
+      <label for="community-participation">6.6 Description of anticipated community participation in the study:</label>
+      <br>
+    </div>
+  
+    <div class="question-block">
+      <label for="community-effects">6.7 Description of possible adverse effects on the community:</label>
+      <br>
+    </div>
+  
+    <div class="question-block">
+      <label>6.8 Select all data privacy practices applied:</label><br>
+      <input type="checkbox" name="privacy[]" value="remove_identifiers"> Personal identifiers will be removed<br>
+      <input type="checkbox" name="privacy[]" value="encryption"> Encryption<br>
+      <input type="checkbox" name="privacy[]" value="pseudonyms"> Use of pseudonyms<br>
+      <input type="checkbox" name="privacy[]" value="focus_group_warning"> Participants in focus groups will be advised confidentiality cannot be assured<br>
+    </div>
+  
+    <div class="question-block">
+      <label>6.9 Checklist to ensure the covering letter meets ethical requirements</label>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th style="width: 70%;">Checklist Item</th>
+      <th style="width: 30%;">Select</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr><td>a) Identity and position of the researcher(s)?</td><td><input type="checkbox" name="q6_9a"></td></tr>
+<tr><td>b) Purpose of the information collection?</td><td><input type="checkbox" name="q6_9b"></td></tr>
+<tr><td>c) Reason for selection and procedures for selecting participants?</td><td><input type="checkbox" name="q6_9c"></td></tr>
+<tr><td>d) Participant’s role in the study?</td><td><input type="checkbox" name="q6_9d"></td></tr>
+<tr><td>e) Expected duration of participation?</td><td><input type="checkbox" name="q6_9e"></td></tr>
+<tr><td>f) Statement of voluntary participation and no penalty?</td><td><input type="checkbox" name="q6_9f"></td></tr>
+<tr><td>g) Benefits to the participant and others?</td><td><input type="checkbox" name="q6_9g"></td></tr>
+<tr><td>h) Risks and steps for harm/injury?</td><td><input type="checkbox" name="q6_9h"></td></tr>
+<tr><td>i) Statement of right to withdraw?</td><td><input type="checkbox" name="q6_9i"></td></tr>
+<tr><td>j) Compensation/gifts/services?</td><td><input type="checkbox" name="q6_9j"></td></tr>
+<tr><td>k) Reimbursement for costs?</td><td><input type="checkbox" name="q6_9k"></td></tr>
+<tr><td>l) Indemnity if applicable?</td><td><input type="checkbox" name="q6_9l"></td></tr>
+<tr><td>m) Period for which records will be kept?</td><td><input type="checkbox" name="q6_9m"></td></tr>
+<tr><td>n) Steps for confidentiality and secure storage?</td><td><input type="checkbox" name="q6_9n"></td></tr>
+<tr><td>o) Disclosure of information to third parties?</td><td><input type="checkbox" name="q6_9o"></td></tr>
+<tr><td>p) Privacy protection in publications?</td><td><input type="checkbox" name="q6_9p"></td></tr>
+<tr><td>q) Feedback to participants?</td><td><input type="checkbox" name="q6_9q"></td></tr>
+<tr><td>r) Exclusions to confidentiality disclosed?</td><td><input type="checkbox" name="q6_9r"></td></tr>
+<tr><td>s) Consent for audio/video recording?</td><td><input type="checkbox" name="q6_9s"></td></tr>
+
+  </tbody>
+</table>
+
+    </div>
+  
+    <div class="question-block">
+      <label for="results-feedback">6.10 How will participants be informed of findings?</label>
+    
+    </div>
+  
+    <div class="question-block">
+      <label for="products-access">6.11 Description of participants’ access to products developed from the study:</label>
+
+    </div>
+  
+    <div class="question-block">
+      <label for="publication-plans">6.12 Indicate how you envisage publishing this research:</label>
+
+    </div>
+  
+    <div class="question-block">
+      <label for="participant-comp">6.13 Describe compensation to participants (if applicable):</label>
+
+    </div>
+  
+    <div class="question-block">
+      <label for="participant-costs">6.14 Describe any financial costs to participants (if applicable):</label>
+
+    </div>
+  
+    <div class="question-block">
+      <label for="ethics-reporting">6.15 Description of reporting to ethics research committee:</label>
+    
+    </div>
+  
+
+      </form>
+  
+    </main>
+  
+    <!-- Section 6 -->
+
+    <main class="main-content">
+  <form id="formA">
+
+
+    <h3>SECTION 7: Declaration</h3>
+    <p><strong>STATEMENT AGREEING TO COMPLY WITH ETHICAL PRINCIPLES SET OUT IN UJ POLICY ON RESEARCH ETHICS</strong></p>
+
+    <div class="form-group">
+      <label for="declaration-name">
+        I, <input type="text" id="declaration-name" name="declaration_name" required style="display: inline-block; width: 300px;">
+        (full name of main researcher), declare that I have read the Policy on Research Ethics of UJ and the contents of this document are a true and accurate reflection of the methodological and ethical implications of my proposed study. I shall carry out the study in strict accordance with the approved proposal and the Policy on Research Ethics of UJ. I further undertake to inform the relevant research ethics review committee of JBS in writing of any adverse events that occur arising from the injury or harm experienced by the participants in the study. I shall also notify the relevant JBS research ethics review committee if any changes to the study are proposed. I shall maintain the confidentiality of all data collected from or about the research participants and impose strict controls in the maintenance of privacy. I shall record all data captured during interviews in accordance with ethical guidelines outlined in my proposal. Paragraph 5 of the Policy on Research Ethics places huge emphasis on the integrity of the research and I shall ensure that I conduct the research with the highest integrity considering UJ’s Policy for Copyright Infringement and Plagiarism. Data that was gathered retrospectively will not be used. I acknowledge that as main researcher it is my responsibility to ensure that the co-researchers to this research project adhere to the ethical principles set out in the UJ Policy on Research Ethics. 
+      </label>
+    </div>
+
+    <div class="form-group">
+      <label>Signature of Applicant</label>
+      <input type="text" name="applicant_signature" placeholder="Type your full name as signature" required>
+    </div>
+
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" name="declaration_date" required>
+    </div>
+
+    <hr>
+
+    <div id="supervisorDeclaration" style="display: none;">
+    
+      <h3>SUPERVISOR'S SECTION</h3>
+      <p><strong>Supervisor's Review and Declaration</strong></p>
+    
+      <div class="form-group">
+        <label for="supervisor_comments">Supervisor Comments:</label>
+        <textarea id="supervisor_comments" name="supervisor_comments" rows="4"
+          placeholder="Provide feedback or concerns regarding the student's submission..."></textarea>
+      </div>
+    
+      <p><strong>Declaration by Supervisor (where applicable):</strong></p>
+      <p>
+        To the best of my knowledge, the student has addressed all the aspects that relate to ethical clearance for the
+        study and is complying with the requirements as set forth in the Policy on Research Ethics of UJ and the Charter and
+        standard operating procedure of the Johannesburg Business Schools’ Research Ethics Committee.
+      </p>
+    
+      <div class="form-group">
+        <label for="supervisor_signature">Signature of Supervisor</label>
+        <input type="text" name="supervisor_signature" id="supervisor_signature"
+          placeholder="Type your full name as signature" required>
+      </div>
+    
+      <div class="form-group">
+        <label for="supervisor_date">Date</label>
+        <input type="date" name="supervisor_date" id="supervisor_date" required>
+      </div>
+    
+    </div>
+
+
+<!-- Supervisor Action Buttons -->
+<div class="form-navigation">
+  <button type="button" class="revise-btn" id="submitToStudent">⬅ Return to Student</button>
+  <button type="button" class="approve-btn" id="submitToEthics">✅ Submit for Ethics Approval</button>
+</div>
+
+
+  </form>
+</main>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 Johannesburg Business School | University of Johannesburg</p>
+  </footer>
+
+  <!-- Confirmation Modal -->
+<div id="confirmationModal" class="modal-overlay">
+  <div class="modal-content">
+    <h3>Form A Submitted Successfully!</h3>
+    <p>Your application has been received and will be sent to your supervisor.</p>
+    <button id="closeModalBtn">Return to Dashboard</button>
+  </div>
+</div>
+
+  <script>
+
+    document.getElementById('supervisor').addEventListener('change', function () {
+      const selected = this.options[this.selectedIndex];
+      const email = selected.getAttribute('sup-email') || '';
+      document.getElementById('supervisor_email').value = email;
+    });
+
+    document.getElementById("formAsection1").addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form); // Collects all text and file fields
+
+      const response = await fetch('{{ url_for("submit_form_a_sec1") }}', {
+        method: 'POST',
+        body: formData //browser sets Headers automatically!
+      });
+
+      if (response.ok) {
+        window.location.href = '{{ url_for("form_a_sec2") }}';
+      }
+      const result = await response.json();
+      document.getElementById("message").textContent = result.message;
+    });
+
+    const form = document.getElementById("formA");
+  const modal = document.getElementById("confirmationModal");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+
+  const supervisorDeclaration = document.getElementById("supervisorDeclaration");
+  const submitToEthicsBtn = document.getElementById("submitToEthics");
+  const submitToStudentBtn = document.getElementById("submitToStudent");
+
+  // Show declaration when "Submit for Ethics Approval" is clicked
+  submitToEthicsBtn.addEventListener("click", () => {
+    supervisorDeclaration.style.display = "block";
+  });
+
+  // Hide declaration when "Return to Student" is clicked
+  submitToStudentBtn.addEventListener("click", () => {
+    supervisorDeclaration.style.display = "none";
+  });
+
+  // Simulate submission
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    modal.style.display = "flex";
+  });
+
+  closeModalBtn.addEventListener("click", () => {
+    window.location.href = "supervisor-dashboard.html";
+  });
+
+
+  </script>
+</body>
+
+</html>
