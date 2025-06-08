@@ -56,92 +56,111 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="main-content">
+<main class="main-content">
     
+
     <h2>Section 3: Proposal Summary Sheet</h2>
     <div class="section">
       <label>3.1 Title or provisional title of the research project:</label>
-    
+
 
       <label>3.2 Proposal abstract in nontechnical language and statement of research problem:</label>
 
-
       <label>3.3 Research Questions / Hypotheses:</label>
 
-
       <label>3.4 Research Purpose and Objectives / Anticipated outcomes:</label>
- 
     </div>
 
     <h2>Section 4: Details of Proposed Research</h2>
     <div class="section">
-      <label>4.1 Does your project involve organisations or institutions that need to grant permission for research activities?</label>
-      <table>
-        <thead>
-          <tr>
-            <th>Name of Organisation</th>
-            <th>Person Granting Permission & Contact</th>
-            <th>Role</th>
-            <th>Permission Granted?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" name="org_name[]"></td>
-            <td><input type="text" name="org_contact[]"></td>
-            <td><input type="text" name="org_role[]"></td>
-            <td>
-              <label><input type="radio" name="org_permission_1" value="Yes"> Yes</label>
-              <label><input type="radio" name="org_permission_1" value="No"> No</label>
-              <label><input type="radio" name="org_permission_1" value="Pending"> Pending</label>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+  <label>4.1 Does your project involve organisations or institutions that need to grant permission for research activities?</label>
+<label><input type="radio" name="grant_permission" value="No"> No</label>
+<label><input type="radio" name="grant_permission" value="Yes"> Yes</label>
 
-      <label>4.2 Are any researchers affiliated with the organisations above?</label>
-      <label><input type="radio" name="researcher_affiliation" value="No"> No</label>
-      <label><input type="radio" name="researcher_affiliation" value="Yes"> Yes (Explain below)</label>
-  
+<div id="permission_table_wrapper" style="display:none; margin-top: 1rem;">
+  <p>Please complete the table below if permission is required.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of Organisation</th>
+        <th>Person Granting Permission & Contact</th>
+        <th>Role</th>
+        <th>Permission Granted?</th>
+      </tr>
+    </thead>
+    <tbody id="permission_table_body">
+      <tr>
+        <td><input type="text" name="org_name[]"></td>
+        <td><input type="text" name="org_contact[]"></td>
+        <td><input type="text" name="org_role[]"></td>
+        <td>
+          <p style="margin-bottom: 0.5rem;">Has permission been granted and letter attached?</p>
+          <hr>
+          <label><input type="radio" name="org_permission_1" value="Yes"> Yes</label>
+          <label><input type="radio" name="org_permission_1" value="No"> No</label>
+          <label><input type="radio" name="org_permission_1" value="Pending"> Pending</label>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <button type="button" onclick="addPermissionRow()">Add Another Organisation</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
-      <label>4.3 Does your research involve collectives or communities?</label>
-      <label><input type="radio" name="collective_involvement" value="No"> No</label>
-      <label><input type="radio" name="collective_involvement" value="Yes"> Yes (Explain below)</label>
-  
+<!-- 4.2 -->
+<label>4.2 Are any researchers affiliated with the organisations above?</label>
+<label><input type="radio" name="researcher_affiliation" value="No"> No</label>
+<label><input type="radio" name="researcher_affiliation" value="Yes"> Yes</label>
 
-      <label>4.4 Is your project funded or sponsored?</label>
-      <label><input type="radio" name="is_funded" value="No"> No</label>
-      <label><input type="radio" name="is_funded" value="Yes"> Yes (Complete table below)</label>
-      <table>
-        <thead>
-          <tr>
-            <th>Organisation Name</th>
-            <th>Contact Person & Details</th>
-            <th>Role</th>
-            <th>Funding Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" name="fund_org[]"></td>
-            <td><input type="text" name="fund_contact[]"></td>
-            <td><input type="text" name="fund_role[]"></td>
-            <td><input type="text" name="fund_amount[]"></td>
-          </tr>
-          <!-- add button to add row -->
-          <tr>
-            <td colspan="4">
-              <button type="button" onclick="addFundingRow()">Add Another Funding Source</button>
-            </td>
-        </tbody>
-      </table>
+
+<!-- 4.3 -->
+<label>4.3 Does your research involve collectives or communities?</label>
+<label><input type="radio" name="collective_involvement" value="No"> No</label>
+<label><input type="radio" name="collective_involvement" value="Yes"> Yes</label>
+
+
+<!-- 4.4 -->
+<label>4.4 Is your project funded or sponsored?</label>
+<label><input type="radio" name="is_funded" value="No"> No</label>
+<label><input type="radio" name="is_funded" value="Yes"> Yes</label>
+<div id="funding_table" style="display:none;">
+  <p>Please complete the table if your project is funded or sponsored.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Organisation Name</th>
+        <th>Contact Person & Details</th>
+        <th>Role</th>
+        <th>Funding Amount</th>
+      </tr>
+    </thead>
+    <tbody id="funding_body">
+      <tr>
+        <td><input type="text" name="fund_org[]"></td>
+        <td><input type="text" name="fund_contact[]"></td>
+        <td><input type="text" name="fund_role[]"></td>
+        <td><input type="text" name="fund_amount[]"></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <button type="button" onclick="addFundingRow()">Add Another Funding Source</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
 
       <label>4.5 Describe your arrangements regarding indemnity/compensation for adverse events:</label>
-  
 
       <label>4.6 Has this proposal been submitted to another ethics committee?</label>
-
     </div>
 
        <!-- Navigation Buttons -->
@@ -152,7 +171,6 @@
     </form>
 
   </main>
-
   <!-- Footer -->
   <footer class="footer">
     <p>&copy; 2025 Johannesburg Business School | University of Johannesburg</p>

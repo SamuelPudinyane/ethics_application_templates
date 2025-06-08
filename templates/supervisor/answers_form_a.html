@@ -323,14 +323,16 @@
           <td><input type="checkbox" name="uj_funding"></td>
 
         </tr>
-        <tr>
-          <td>
+       <tr>
+          <td>Other: Provide a description</td>
+          <td><input type="text" class="form-control d-inline" name="vulnerable_comments_3" placeholder="Specify"></td>
 
-          </td>
-          <td></td>
         </tr>
+
       </tbody>
     </table>
+    
+    
 
     <div class="mb-3">
       <label><strong>Rate your project (Negligible, Low, Medium, High Risk):</strong><span class="info-icon"
@@ -341,32 +343,13 @@
         <option value="medium">Medium</option>
         <option value="high">High</option>
       </select>
-    </div>
-
-
-
-    </tr>
-    <tr>
-      <td>Interviews</td>
-      <td><input type="checkbox" name="interviews"></td>
-
-    </tr>
-    <tr>
-      <td>Documents</td>
-      <td><input type="checkbox" name="documents"></td>
-
-    </tr>
-    <tr>
-      <td colspan="2">
-        <label>Other (Specify)</label>
+      <label for="risk_justification"> Please justify your risk level (Mandatory) </label>
+      
+      <label for="benefits_description"> For medium and high risk, describe the potential benefits of the study: </label>
+    
+      <label for="risk_mitigation"> For medium and high risk, describe how potential risks will be mitigated against: </label>
      
-      </td>
-
-    </tr>
-    </tbody>
-    </table>
-
-    </form>
+    </div>
 
   </main>
 
@@ -392,66 +375,88 @@
 
     <h2>Section 4: Details of Proposed Research</h2>
     <div class="section">
-      <label>4.1 Does your project involve organisations or institutions that need to grant permission for research activities?</label>
-      <table>
-        <thead>
-          <tr>
-            <th>Name of Organisation</th>
-            <th>Person Granting Permission & Contact</th>
-            <th>Role</th>
-            <th>Permission Granted?</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" name="org_name[]"></td>
-            <td><input type="text" name="org_contact[]"></td>
-            <td><input type="text" name="org_role[]"></td>
-            <td>
-              <label><input type="radio" name="org_permission_1" value="Yes"> Yes</label>
-              <label><input type="radio" name="org_permission_1" value="No"> No</label>
-              <label><input type="radio" name="org_permission_1" value="Pending"> Pending</label>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <label>4.1 Does your project involve organisations or institutions that need to grant permission for research activities?</label>
+<label><input type="radio" name="grant_permission" value="No"> No</label>
+<label><input type="radio" name="grant_permission" value="Yes"> Yes</label>
+<div id="permission_table_wrapper" style="display:none; margin-top: 1rem;">
+  <p>Please complete the table below if permission is required.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name of Organisation</th>
+        <th>Person Granting Permission & Contact</th>
+        <th>Role</th>
+        <th>Permission Granted?</th>
+      </tr>
+    </thead>
+    <tbody id="permission_table_body">
+      <tr>
+        <td><input type="text" name="org_name[]"></td>
+        <td><input type="text" name="org_contact[]"></td>
+        <td><input type="text" name="org_role[]"></td>
+        <td>
+          <p style="margin-bottom: 0.5rem;">Has permission been granted and letter attached?</p>
+          <hr>
+          <label><input type="radio" name="org_permission_1" value="Yes"> Yes</label>
+          <label><input type="radio" name="org_permission_1" value="No"> No</label>
+          <label><input type="radio" name="org_permission_1" value="Pending"> Pending</label>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <button type="button" onclick="addPermissionRow()">Add Another Organisation</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
-      <label>4.2 Are any researchers affiliated with the organisations above?</label>
-      <label><input type="radio" name="researcher_affiliation" value="No"> No</label>
-      <label><input type="radio" name="researcher_affiliation" value="Yes"> Yes (Explain below)</label>
-  
+<!-- 4.2 -->
+<label>4.2 Are any researchers affiliated with the organisations above?</label>
+<label><input type="radio" name="researcher_affiliation" value="No"> No</label>
+<label><input type="radio" name="researcher_affiliation" value="Yes"> Yes</label>
 
-      <label>4.3 Does your research involve collectives or communities?</label>
-      <label><input type="radio" name="collective_involvement" value="No"> No</label>
-      <label><input type="radio" name="collective_involvement" value="Yes"> Yes (Explain below)</label>
-  
 
-      <label>4.4 Is your project funded or sponsored?</label>
-      <label><input type="radio" name="is_funded" value="No"> No</label>
-      <label><input type="radio" name="is_funded" value="Yes"> Yes (Complete table below)</label>
-      <table>
-        <thead>
-          <tr>
-            <th>Organisation Name</th>
-            <th>Contact Person & Details</th>
-            <th>Role</th>
-            <th>Funding Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><input type="text" name="fund_org[]"></td>
-            <td><input type="text" name="fund_contact[]"></td>
-            <td><input type="text" name="fund_role[]"></td>
-            <td><input type="text" name="fund_amount[]"></td>
-          </tr>
-          <!-- add button to add row -->
-          <tr>
-            <td colspan="4">
-              <button type="button" onclick="addFundingRow()">Add Another Funding Source</button>
-            </td>
-        </tbody>
-      </table>
+<!-- 4.3 -->
+<label>4.3 Does your research involve collectives or communities?</label>
+<label><input type="radio" name="collective_involvement" value="No"> No</label>
+<label><input type="radio" name="collective_involvement" value="Yes"> Yes</label>
+
+
+<!-- 4.4 -->
+<label>4.4 Is your project funded or sponsored?</label>
+<label><input type="radio" name="is_funded" value="No"> No</label>
+<label><input type="radio" name="is_funded" value="Yes"> Yes</label>
+<div id="funding_table" style="display:none;">
+  <p>Please complete the table if your project is funded or sponsored.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Organisation Name</th>
+        <th>Contact Person & Details</th>
+        <th>Role</th>
+        <th>Funding Amount</th>
+      </tr>
+    </thead>
+    <tbody id="funding_body">
+      <tr>
+        <td><input type="text" name="fund_org[]"></td>
+        <td><input type="text" name="fund_contact[]"></td>
+        <td><input type="text" name="fund_role[]"></td>
+        <td><input type="text" name="fund_amount[]"></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <button type="button" onclick="addFundingRow()">Add Another Funding Source</button>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 
       <label>4.5 Describe your arrangements regarding indemnity/compensation for adverse events:</label>
   
@@ -470,160 +475,210 @@
   <main class="main-content">
 
   <!-- Section 5: Methodology -->
-  <section id="section-5">
-    <h2>SECTION 5 – METHODOLOGY</h2>
+<section id="section-5">
+      <h2>SECTION 5 – METHODOLOGY</h2>
 
-    <label>5.1 Research Paradigm (Substantiate your choice of paradigm)</label><br>
-    <table id="methodTypeTable" class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Quantitative Methods</th>
-          <th>Qualitative Methods</th>
-          <th>Mixed Methods</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="text-center"><input type="checkbox" name="quantitative[]" value="yes"></td>
-          <td class="text-center"><input type="checkbox" name="qualitative[]" value="yes"></td>
-          <td class="text-center"><input type="checkbox" name="mixed_methods[]" value="yes"></td>
-        </tr>
-      </tbody>
-    </table>
+      <label>5.1 Research Paradigm (Substantiate your choice of paradigm)</label><br>
+      <table id="methodTypeTable" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Quantitative Methods ℹ️</th>
+            <th>Qualitative Methods ℹ️</th>
+            <th>Mixed Methods ℹ️</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="text-center"><input type="checkbox" name="quantitative[]" value="yes"></td>
+            <td class="text-center"><input type="checkbox" name="qualitative[]" value="yes"></td>
+            <td class="text-center"><input type="checkbox" name="mixed_methods[]" value="yes"></td>
+          </tr>
+        </tbody>
+      </table>
 
-
-    <label>5.2 Research Design / Approach</label>
-    <br>
-    
-
-    <h3>5.3 Details of the participants</h3>
-    <br>
-
-    <h4>5.3.1 Participant Group Description</h4>
+      <label>5.2 Research Design / Approach</label>
 
 
-    <table id="participantsTable" class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Population</th>
-          <th>Sampling Method</th>
-          <th>Sample Size</th>
-          <th>Inclusion Criteria</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><input type="text" name="population[]" class="form-control" /></td>
-          <td><input type="text" name="sampling_method[]" class="form-control" /></td>
-          <td><input type="number" name="sample_size[]" class="form-control" /></td>
-          <td><textarea name="inclusion_criteria[]" rows="2" class="form-control"></textarea></td>
-          <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
-        </tr>
-      </tbody>
-    </table>
-    
-    <button type="button" class="btn btn-secondary" onclick="addRow()">Add Row</button>
+
+      <label>5.3 Participant Group Description</label>
+      <label>5.3.1 Describe the population from which you will sample participants, the sampling method, sample size and
+        inclusion criteria.</label>
+      <table id="participantsTable" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Population</th>
+            <th>Sampling Method</th>
+            <th>Sample Size</th>
+            <th>Inclusion Criteria</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="population[]" class="form-control" /></td>
+            <td><input type="text" name="sampling_method[]" class="form-control" /></td>
+            <td><input type="number" name="sample_size[]" class="form-control" /></td>
+            <td><textarea name="inclusion_criteria[]" rows="2" class="form-control"></textarea></td>
+            <td><button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn btn-secondary" onclick="addRow()">Add Row</button>
 
 
-    <label>5.3.2 Describe how much time you require of participants in each group and when the data will be collected/ interviews will take place.</label>
-    <br>>
+      <label>5.3.2 Describe how much time you require of participants in each group and when the data will be collected/
+        interviews will take place.</label>
 
-    <label>5.3.3 Explain how you will obtain the contact details of participantslabel>
-  <br>>
+      <label>5.3.3 Explain how you will obtain the contact details of participants<label>
 
-    <label>5.3.4 Conflict of interest or unequal relationship between researcher and participants?</label><br>
-    <input type="radio" name="conflict_interest" value="No"> No
-    <input type="radio" name="conflict_interest" value="Yes"> Yes
-   <br>
+          <!-- 5.3.4 Conflict of Interest -->
+          <label>5.3.4 Conflict of interest or unequal relationship between researcher and participants?</label><br>
+          <input type="radio" name="conflict_interest" value="No"> No
+          <input type="radio" name="conflict_interest" value="Yes"> Yes
+          <div id="conflict_explanation_box" style="display: none;">
+            <textarea name="conflict_explanation" rows="2"
+              placeholder="If yes, give details and explain how it will be mitigated"></textarea>
+          </div>
 
-    <h3>5.4 Research Instruments for Data Collection</h3>
-    <label>5.4.1 Indicate which data collection methds will be used</label><br>
-    <label>5.4.1.1 Questionnaire(s):</label><br>
-    <input type="radio" name="questionnaire_type" value="Self-designed"> Self-designed<br>
-    <input type="radio" name="questionnaire_type" value="Existing"> Existing<br>
-    <label>If existing, permission obtained?</label>
-    <input type="checkbox" name="permission_obtained"> Yes
-    <input type="checkbox" name="open_source"> Open Source<br>
-   <br>
+          <br><br>
 
-    <label>5.4.2 Describe the data collection procedure</label>
-    <br>
+          <!-- 5.4 Data Collection -->
+          <h5>5.4 Research Instruments for Data Collection</h5>
 
-    <label>5.4.2.1 Interviews</label><br>
-    <input type="checkbox" name="interview_type" value="In-depth"> In-depth
-    <input type="checkbox" name="interview_type" value="Semi-structured"> Semi-structured
-    <input type="checkbox" name="interview_type" value="Unstructured"> Unstructured<br>
+          <label>5.4.1 Indicate which data collection methods will be used:</label><br>
+          <div id="data-methods">
+            <label><input type="checkbox" value="questionnaire" class="method-check"> Questionnaire</label><br>
+            <label><input type="checkbox" value="interview" class="method-check"> Interview</label><br>
+            <label><input type="checkbox" value="focus" class="method-check"> Focus Group</label><br>
+            <label><input type="checkbox" value="observation" class="method-check"> Observation</label><br>
+            <label><input type="checkbox" value="documents" class="method-check"> Documents</label><br>
+            <label><input type="checkbox" value="other" class="method-check"> Other</label><br>
+          </div>
 
-    <label>Will interviews be recorded?</label><br>
-    <input type="checkbox" name="interview_recording" value="Audio"> Audio
-    <input type="checkbox" name="interview_recording" value="Video"> Video<br>
+          <!-- Questionnaire -->
+          <div id="questionnaire_fields" style="display:none; margin-top: 1rem;">
+            <label>5.4.1.1 Questionnaire(s):</label><br>
+            <input type="radio" name="questionnaire_type" value="Self-designed"> Self-designed<br>
+            <input type="radio" name="questionnaire_type" value="Existing"> Existing<br>
+            <label>If existing, permission obtained?</label><br>
+            <input type="checkbox" name="permission_obtained"> Yes
+            <input type="checkbox" name="open_source"> Open Source<br>
+            <textarea name="instrument_attachment_reason" rows="2" placeholder="Attach or justify"></textarea>
+          </div>
 
-    <label>5.4.2.2 Focus Groups</label><br>
-    <input type="radio" name="use_focus_groups" value="Yes"> Yes
-    <input type="radio" name="use_focus_groups" value="No"> No<br>
-    <label>Will focus groups be recorded?</label><br>
-    <input type="checkbox" name="focus_recording" value="Audio"> Audio
-    <input type="checkbox" name="focus_recording" value="Video"> Video
-    <br><br>
-    
+          <!-- Interview -->
+          <div id="interview_fields" style="display:none; margin-top: 1rem;">
+            <label>5.4.2.1 Interviews</label><br>
+            <input type="checkbox" name="interview_type" value="In-depth"> In-depth
+            <input type="checkbox" name="interview_type" value="Semi-structured"> Semi-structured
+            <input type="checkbox" name="interview_type" value="Unstructured"> Unstructured<br>
+            <label>Will interviews be recorded?</label><br>
+            <input type="checkbox" name="interview_recording" value="Audio"> Audio
+            <input type="checkbox" name="interview_recording" value="Video"> Video
+          </div>
 
-    <label>5.4.3 Who will collect the data (Researcher and/or field workers/external company)?</label>
-    <br>
+          <!-- Focus Group -->
+          <div id="focus_fields" style="display:none; margin-top: 1rem;">
+            <label>5.4.2.2 Focus Groups</label><br>
+            <input type="radio" name="use_focus_groups" value="Yes"> Yes
+            <input type="radio" name="use_focus_groups" value="No"> No<br>
+            <label>Will focus groups be recorded?</label><br>
+            <input type="checkbox" name="focus_recording" value="Audio"> Audio
+            <input type="checkbox" name="focus_recording" value="Video"> Video
+          </div>
 
-    <label>5.4.4 Will participants be subjected to any form of intervention (manipulation of the participant or the participants' environment)?</label><br>
-    <input type="radio" name="intervention" value="No"> No
-    <input type="radio" name="intervention" value="Yes"> Yes<br>
-    <br>
+          <!-- Observation -->
+          <div id="observation_fields" style="display:none; margin-top: 1rem;">
+            <label>Please describe your observation protocol:</label>
+            <textarea name="observation_details" rows="3"
+              placeholder="Explain how observations will be conducted."></textarea>
+          </div>
 
-    <label>5.4.5 Sensitive data or vulnerable populations?</label>
-    <br>
+          <!-- Documents -->
+          <div id="documents_fields" style="display:none; margin-top: 1rem;">
+            <label>What type of documents will be analyzed?</label>
+            <textarea name="documents_details" rows="3"
+              placeholder="E.g. reports, archives, publications..."></textarea>
+          </div>
 
-    <label>5.4.6 Will a translator be required?</label><br>
-    <input type="radio" name="translator" value="No"> No
-    <input type="radio" name="translator" value="Yes"> Yes
-    <br>
+          <!-- Other -->
+          <div id="other_fields" style="display:none; margin-top: 1rem;">
+            <label>Please describe other data collection method(s):</label>
+            <textarea name="other_details" rows="3" placeholder="Describe..."></textarea>
+          </div>
 
-    <h3>5.5 Secondary Data Usage</h3>
+          <!-- General Data Collection Procedure -->
+          <label style="margin-top: 1.5rem;">5.4.2 Describe the data collection procedure</label>
+         
+          <br><br>
 
-    <label>Will secondary data be used?</label><br>
-    <select id="secondaryData" class="form-select" onchange="handleSecondaryData()">
-      <option value="">-- Select --</option>
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
-    
-    <div id="secondaryDetails" style="display: none; margin-top: 1rem;">
-    
-      <label>Is the data Public or Private?</label><br>
-      <select id="dataType" class="form-select" onchange="handleDataType()">
-        <option value="">-- Select --</option>
-        <option value="private">Private</option>
-        <option value="public">Public</option>
-      </select>
-    
-      <!-- Private Data Section -->
-      <div id="privateDataSection" style="display: none; margin-top: 1rem;">
-        <label>Is the data from a company that has provided permission?</label><br>
-        <select id="privatePermission" class="form-select" onchange="handlePrivatePermission()">
-          <option value="">-- Select --</option>
-          <option value="yes">Yes</option>
-          <option value="no">No</option>
-        </select>
-    
-        <div id="uploadPrivatePermission" style="display: none; margin-top: 1rem;">
-          <label>Please upload the permission for use of private data:</label>
-          <input type="file" name="private_permission_file" class="form-control">
-        </div>
-      </div>
-    
-      <!-- Public Data Section -->
-      <div id="publicDataSection" style="display: none; margin-top: 1rem;">
-        <label>What type of public data is going to be used?</label>
-        <textarea name="public_data_description" rows="3" class="form-control" placeholder="e.g., Annual reports; Open data; investigative reports"></textarea>
-      </div>
-    </div>
-  </section>
+
+          <label>5.4.3 Who will collect the data (Researcher and/or field workers/external company)?</label>
+          
+          <!-- 5.4.4 Intervention -->
+          <label>5.4.4 Will participants be subjected to any form of intervention (manipulation of the participant or
+            the
+            participants' environment)?</label><br>
+          <input type="radio" name="intervention" value="No"> No
+          <input type="radio" name="intervention" value="Yes"> Yes<br>
+          
+
+          <!-- 5.4.5 Sensitive Data -->
+          <label>5.4.5 Sensitive data or vulnerable populations?</label>
+          
+
+          <!-- 5.4.6 Translator -->
+          <label>5.4.6 Will a translator be required?</label><br>
+          <input type="radio" name="translator" value="No"> No
+          <input type="radio" name="translator" value="Yes"> Yes<br>
+          
+
+          <br>
+
+
+          <h5>5.5 Secondary Data Usage</h5>
+
+          <label>Will secondary data be used?</label><br>
+          <select id="secondaryData" class="form-select" onchange="handleSecondaryData()">
+            <option value="">-- Select --</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <div id="secondaryDetails" style="display: none; margin-top: 1rem;">
+
+            <label>Is the data Public or Private?</label><br>
+            <select id="dataType" class="form-select" onchange="handleDataType()">
+              <option value="">-- Select --</option>
+              <option value="private">Private</option>
+              <option value="public">Public</option>
+              <option value="both">Both</option>
+            </select>
+
+            <!-- Private Data Section -->
+            <div id="privateDataSection" style="display: none; margin-top: 1rem;">
+              <label>Is the data from a company that has provided permission?</label><br>
+              <select id="privatePermission" class="form-select" onchange="handlePrivatePermission()">
+                <option value="">-- Select --</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+
+              <div id="uploadPrivatePermission" style="display: none; margin-top: 1rem;">
+                <label>Please upload the permission for use of private data:</label>
+                <input type="file" name="private_permission_file" class="form-control">
+              </div>
+            </div>
+
+            <!-- Public Data Section -->
+            <div id="publicDataSection" style="display: none; margin-top: 1rem;">
+              <label>What type of public data is going to be used?</label>
+              <textarea name="public_data_description" rows="3" class="form-control"
+                placeholder="e.g., Annual reports; Open data; investigative reports"></textarea>
+            </div>
+          </div>
+    </section>
 
 
       </form>

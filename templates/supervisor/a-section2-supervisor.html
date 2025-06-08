@@ -261,16 +261,17 @@
         <tr>
           <td>g) Research will be funded by UJ or funding for it was acquired through UJ.</td>
           <td><input type="checkbox" name="uj_funding"></td>
+        </tr>
+          <tr>
+          <td>Other: Provide a description</td>
+          <td><input type="text" class="form-control d-inline" name="vulnerable_comments_3" placeholder="Specify"></td>
 
         </tr>
-        <tr>
-          <td>
 
-          </td>
-          <td></td>
-        </tr>
       </tbody>
     </table>
+    
+    <textarea name="apply_comments" rows="3" placeholder="Comments (if any)..."></textarea>
 
     <div class="mb-3">
       <label><strong>Rate your project (Negligible, Low, Medium, High Risk):</strong><span class="info-icon"
@@ -281,31 +282,13 @@
         <option value="medium">Medium</option>
         <option value="high">High</option>
       </select>
-    </div>
-
-
-
-    </tr>
-    <tr>
-      <td>Interviews</td>
-      <td><input type="checkbox" name="interviews"></td>
-
-    </tr>
-    <tr>
-      <td>Documents</td>
-      <td><input type="checkbox" name="documents"></td>
-
-    </tr>
-    <tr>
-      <td colspan="2">
-        <label>Other (Specify)</label>
+      <label for="risk_justification"> Please justify your risk level (Mandatory) </label>
+      
+      <label for="benefits_description"> For medium and high risk, describe the potential benefits of the study: </label>
+    
+      <label for="risk_mitigation"> For medium and high risk, describe how potential risks will be mitigated against: </label>
      
-      </td>
-
-    </tr>
-    </tbody>
-    </table>
-
+    </div>
 
     <!-- Navigation Buttons -->
     <div class="form-navigation">
